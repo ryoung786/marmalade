@@ -32,9 +32,14 @@
       |   First install <code>package.el</code></a>.
     li
       | Add to your <code>.emacs</code>:
-      | <code class="elisp">(add-to-list 'package-archives '("marmalade" .
-      |     <span class="assoc-entry">"http://marmalade-repo.org/packages/"</span>))</code>
-    li <code>C-x C-e</code> to evaluate it, and you're good to go!
+      | <code class="elisp">(require 'package)
+      |     (add-to-list 'package-archives '("marmalade" .
+      |     <span class="assoc-entry">"http://marmalade-repo.org/packages/"</span>))
+      | (package-initialize)</code>
+    li
+      | <tt>M-x eval-buffer</tt> to evaluate it, and then do 
+      | <tt>M-x package-refresh-contents</tt> to load in the package listing.
+    li You're good to go!
 #packages
   a.add(href="/packages/new") Add Package
   table
