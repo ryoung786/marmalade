@@ -16,6 +16,7 @@ case $1 in
 
     start)
 	forever start $THISDIR/../node_modules/marmalade/marmalade.js 
+        ;;
 
     restart)
         bash $0 install
