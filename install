@@ -1,0 +1,27 @@
+#!/bin/bash
+
+THISDIR=$(cd $(dirname $0) ; pwd)
+
+case $1 in 
+
+    install)
+	cd $THISDIR/..
+	npm install $THISDIR
+	npm install -g forever
+        ;;
+
+    stop)
+	forever stop $THISDIR/../node_modules/marmalade/marmalade.js
+        ;;
+
+    start)
+	forever start $THISDIR/../node_modules/marmalade/marmalade.js 
+
+    restart)
+        bash $0 install
+        bash $0 stop
+        bash $0 start
+        ;;
+esac
+
+# End of install

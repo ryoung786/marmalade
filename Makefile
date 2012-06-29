@@ -5,19 +5,6 @@ default: doc
 clean:
 	rm -rf man README.html
 
-install:
-	npm install ../marmalade
-	npm install -g forever
-
-restart: install
-	forever stop node_modules/marmalade/marmalade.js 
-	forever start node_modules/marmalade/marmalade.js 
-
-start:
-	forever start node_modules/marmalade/marmalade.js 
-
-stop:
-	forever stop node_modules/marmalade/marmalade.js 
 
 # This only works with the Ruby ronn at time of writing, which is really fine
 # because the JS one is pretty bare-bones.
