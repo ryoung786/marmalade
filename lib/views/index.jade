@@ -29,12 +29,13 @@
   ul
     li
       | <a href="http://repo.or.cz/w/emacs.git/blob_plain/1a0a666f941c99882093d7bd08ced15033bc3f0c:/lisp/emacs-lisp/package.el">
-      |   First install <code>package.el</code></a>.
+      |   First, if you are not using Emacs 24, install <code>package.el</code></a>.
     li
       | Add to your <code>.emacs</code>:
       | <pre class="elisp">(require 'package)
-      |     (add-to-list 'package-archives '("marmalade" .
-      |     <span class="assoc-entry">"http://marmalade-repo.org/packages/"</span>))
+      | (add-to-list 'package-archives 
+      |     '("marmalade" .
+      |       <span class="assoc-entry">"http://marmalade-repo.org/packages/"</span>))
       | (package-initialize)</pre>
     li
       | <tt>M-x eval-buffer</tt> to evaluate it, and then do 
