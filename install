@@ -1,21 +1,25 @@
 #!/bin/bash
 
 THISDIR=$(cd $(dirname $0) ; pwd)
+INSTALLDIR=$(cd $(dirname $0)/.. ; pwd)
+PATH=~/noderoot/bin:$PATH
 
 case $1 in 
 
     install)
-	cd $THISDIR/..
+	cd $INSTALLDIR
 	npm install $THISDIR
 	npm install -g forever
         ;;
 
     stop)
-	forever stop $THISDIR/../node_modules/marmalade/marmalade.js
+	cd $INSTALLDIR
+	forever stop node_modules/marmalade/marmalade.js
         ;;
 
     start)
-	forever start $THISDIR/../node_modules/marmalade/marmalade.js 
+	cd $INSTALLDIR
+	forever start node_modules/marmalade/marmalade.js 
         ;;
 
     restart)
