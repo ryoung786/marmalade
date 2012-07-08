@@ -1,0 +1,13 @@
+
+
+
+== FAQ ==
+
+=== API tokens? how do I change them? ===
+
+there seems to be a bug about changing API tokens.  The API token is
+stored in the db attached to the user.  It's constructed when the user
+registers and then never changed. 
+
+See https://github.com/nicferrier/marmalade/blob/master/lib/backend.js#L922 
+
