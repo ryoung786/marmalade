@@ -1,5 +1,47 @@
 
 
+== mongo maintenance ==
+
+mongodb is so lolsome.
+
+Here's just a few tips.
+
+
+=== updating the package owner ===
+
+Find the new owner's marmalade email address:
+
+{{{
+use marmalade
+db.user.findOne({"_name": "username"})
+}}}
+
+shows the email address in the structure.
+
+Then find the package:
+
+{{{
+use marmalade
+db.packages.findOne({"_name": "package-name"})
+}}}
+
+Check the existing owner. You'll probably want to send them an email
+explaining the change of ownership.
+
+Now update the package:
+
+{{{
+use marmalade
+db.packages.update({"_name": "package-name"}, { $set: { "owners": { "username": "email-address" } } })
+}}}
+
+Now update the user's package ownership list:
+
+{{{
+use marmalade
+db.users.update({"_name": "username"}, { $push : { "packages": "package-name" } } )
+}}}
+
 
 == FAQ ==
 
@@ -10,4 +52,5 @@ stored in the db attached to the user.  It's constructed when the user
 registers and then never changed. 
 
 See https://github.com/nicferrier/marmalade/blob/master/lib/backend.js#L922 
+
 
